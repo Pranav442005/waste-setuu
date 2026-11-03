@@ -1,7 +1,7 @@
 (() => {
 const token=localStorage.getItem('wasteSetuToken');
 let user=null; try{user=JSON.parse(localStorage.getItem('wasteSetuUser')||'null')}catch{}
-const API='http://127.0.0.1:8000/api/workflow';
+const API='https://waste-setuu.onrender.com/api/workflow';
 const $=id=>document.getElementById(id);
 const view=$('view'), menu=$('menu'), notice=$('notice');
 if(!token||!user||!user.portal||user.portal==='domestic'){

@@ -47,7 +47,7 @@ INSTALLATION ON WINDOWS / VS CODE
    python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 10. Open the frontend-html folder in VS Code. Right-click its index.html and choose
     Open with Live Server. Use the same root folder for every page.
-11. API docs: http://127.0.0.1:8000/docs
+11. API docs: https://waste-setuu.onrender.com/docs
 
 AUTHENTICATION NOTES
 --------------------

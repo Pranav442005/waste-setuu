@@ -7,7 +7,7 @@
   };
   const STORAGE_KEY = "wasteSetuLanguage";
   const CACHE_KEY = "wasteSetuTranslationCacheV1";
-  const API_URL = "http://127.0.0.1:8000/api/translate/batch";
+  const API_URL = "https://waste-setuu.onrender.com/api/translate/batch";
   const MAX_BATCH = 35;
   let currentLanguage = localStorage.getItem(STORAGE_KEY) || "en";
   let observer;
