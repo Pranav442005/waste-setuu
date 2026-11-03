@@ -1,0 +1,20 @@
+#ws-ai-root{position:fixed;right:22px;bottom:22px;z-index:2147483000;font-family:Arial,Helvetica,sans-serif;color:#183b2b}
+#ws-ai-launch{width:62px;height:62px;border:0;border-radius:50%;background:#167348;color:#fff;box-shadow:0 8px 24px #0003;cursor:pointer;font-size:25px;display:grid;place-items:center}
+#ws-ai-launch:hover{background:#105c39;transform:translateY(-1px)}
+#ws-ai-panel{position:absolute;right:0;bottom:76px;width:min(370px,calc(100vw - 28px));height:min(540px,calc(100vh - 125px));background:#fff;border:1px solid #dce9df;border-radius:18px;box-shadow:0 14px 45px #0003;display:none;overflow:hidden}
+#ws-ai-panel.ws-open{display:flex;flex-direction:column}
+.ws-ai-head{background:#167348;color:white;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ws-ai-head strong{font-size:15px}.ws-ai-head small{display:block;font-size:11px;opacity:.88;margin-top:3px}
+.ws-ai-head button{border:0;background:transparent;color:white;font-size:22px;cursor:pointer;padding:2px 6px}
+.ws-ai-tools{padding:8px 12px;border-bottom:1px solid #edf2ee;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ws-ai-tools select{max-width:170px;border:1px solid #d6e3d9;border-radius:8px;padding:6px;background:white;color:#183b2b}
+.ws-ai-tools span{font-size:11px;color:#63776a}
+#ws-ai-messages{padding:14px;overflow:auto;flex:1;background:#f7faf7;display:flex;flex-direction:column;gap:10px}
+.ws-ai-msg{max-width:88%;padding:10px 12px;border-radius:13px;font-size:13px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere}
+.ws-ai-msg.bot{align-self:flex-start;background:#e8f2eb;border-bottom-left-radius:4px}.ws-ai-msg.user{align-self:flex-end;background:#167348;color:white;border-bottom-right-radius:4px}
+.ws-ai-compose{padding:10px;border-top:1px solid #e7eee8;display:flex;gap:7px;align-items:flex-end;background:white}
+#ws-ai-input{min-width:0;flex:1;resize:none;max-height:100px;border:1px solid #d5e1d8;border-radius:11px;padding:10px;font:13px Arial;outline:none}
+#ws-ai-input:focus{border-color:#167348} .ws-ai-action{border:0;border-radius:10px;width:38px;height:38px;background:#e8f2eb;color:#12643f;cursor:pointer;font-size:17px;flex-shrink:0}
+#ws-ai-send{background:#167348;color:white} .ws-ai-action:disabled{opacity:.5;cursor:not-allowed}
+.ws-ai-foot{font-size:10px;color:#819087;text-align:center;padding:0 8px 8px;background:white}
+@media(max-width:480px){#ws-ai-root{right:14px;bottom:14px}#ws-ai-panel{bottom:70px;right:0;width:calc(100vw - 28px);height:min( min(620px, calc(100dvh - 100px)), 620px)}}

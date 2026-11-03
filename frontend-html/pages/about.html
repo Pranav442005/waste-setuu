@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Waste Setu</title>
+<link rel="stylesheet" href="../assets/css/styles.css">
+
+<style>
+/* ================= ABOUT PAGE ================= */
+.about-page {
+    --green: #155e45;
+    --green2: #237b55;
+    --light: #eaf4ee;
+    --text: #263b30;
+    --muted: #69776f;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #fff;
+    color: var(--text);
+}
+
+.about-page {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.about-page::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+
+    background-image: url("your-logo.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: min(95vw, 1100px) auto;
+
+    opacity: 0.09;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.about-wrap {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+.about-section {
+    padding: 65px 0;
+}
+
+.section-label {
+    color: var(--green2);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    color: var(--green);
+    font: 800 30px Manrope, sans-serif;
+    margin: 10px 0 16px;
+}
+
+.section-desc {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 850px;
+}
+
+/* BRAND HERO */
+.about-hero {
+    padding: 65px 20px 55px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 10% 20%, #dcefe3 0, transparent 35%),
+        radial-gradient(circle at 90% 80%, #e4f2e9 0, transparent 35%),
+        #f7fbf8;
+    border-bottom: 1px solid #e1ebe4;
+}
+
+.hero-logo {
+    width: 105px;
+    height: 105px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 12px;
+}
+
+.about-hero h1 {
+    font: 900 48px Manrope, sans-serif;
+    color: var(--green);
+    margin: 5px 0;
+    letter-spacing: 1px;
+}
+
+.hero-tagline {
+    color: var(--green2);
+    font-size: 17px;
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.hero-description {
+    max-width: 720px;
+    margin: 16px auto 0;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* INTRO */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.intro-card {
+    background: #f5faf6;
+    border: 1px solid #e0ebe3;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.intro-card h3 {
+    color: var(--green);
+    font: 800 20px Manrope, sans-serif;
+    margin-top: 0;
+}
+
+.intro-card p,
+.intro-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.intro-stat {
+    display: grid;
+    gap: 12px;
+}
+
+.stat-box {
+    padding: 20px;
+    background: white;
+    border: 1px solid #e1ebe4;
+    border-left: 4px solid var(--green2);
+    border-radius: 10px;
+}
+
+.stat-box b {
+    color: var(--green);
+    display: block;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.stat-box span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* VISION AND MISSION */
+.vm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.vm-card {
+    padding: 30px;
+    border-radius: 15px;
+    background: white;
+    border: 1px solid #e1ebe4;
+    box-shadow: 0 8px 25px #163d2510;
+}
+
+.vm-card .vm-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: var(--light);
+    color: var(--green);
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.vm-card h3 {
+    color: var(--green);
+    font: 800 21px Manrope, sans-serif;
+}
+
+.vm-card p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+/* WORKFLOW */
+.workflow-section {
+    background: #f5faf6;
+}
+
+.workflow {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 35px;
+}
+
+.flow-card {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    background: white;
+    border: 1px solid #dce9df;
+    border-radius: 14px;
+    padding: 23px 12px;
+    box-shadow: 0 5px 18px #153b2510;
+}
+
+.flow-number {
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 12px;
+    display: grid;
+    place-items: center;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    font-weight: 800;
+}
+
+.flow-card h3 {
+    font: 800 14px Manrope, sans-serif;
+    color: var(--green);
+    margin: 8px 0;
+}
+
+.flow-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.flow-arrow {
+    align-self: center;
+    color: var(--green2);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+/* STAKEHOLDER FLOW */
+.stakeholder-flow {
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 16px;
+    background: white;
+    border: 1px solid #dce9df;
+    text-align: center;
+}
+
+.stakeholder-flow h3 {
+    color: var(--green);
+    font: 800 19px Manrope, sans-serif;
+}
+
+.flow-node {
+    display: inline-block;
+    min-width: 155px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: #eaf4ee;
+    border: 1px solid #c9dfd0;
+    color: var(--green);
+    font-weight: 800;
+    font-size: 14px;
+    margin: 8px;
+}
+
+.flow-down {
+    display: block;
+    color: var(--green2);
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.flow-note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* CATEGORIES */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+    margin-top: 25px;
+}
+
+.category-card {
+    background: white;
+    border: 1px solid #e0ebe3;
+    border-radius: 13px;
+    padding: 22px;
+    transition: .25s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green2);
+    box-shadow: 0 10px 25px #153b2512;
+}
+
+.category-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    background: var(--light);
+    border-radius: 10px;
+    color: var(--green);
+    font-size: 20px;
+}
+
+.category-card h3 {
+    color: var(--green);
+    font: 800 15px Manrope, sans-serif;
+    margin: 14px 0 7px;
+}
+
+.category-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* FEATURES */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.feature-card {
+    padding: 22px;
+    border: 1px solid #e0ebe3;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.feature-card h3 {
+    color: var(--green);
+    font: 800 14px Manrope, sans-serif;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* IMPACT */
+.impact-box {
+    background: #155e45;
+    color: white;
+    padding: 45px 35px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.impact-box h2 {
+    color: white;
+    font: 800 29px Manrope, sans-serif;
+}
+
+.impact-box p {
+    max-width: 800px;
+    margin: 12px auto;
+    color: #e0eee5;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.impact-points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.impact-points span {
+    padding: 10px 15px;
+    border: 1px solid #ffffff55;
+    border-radius: 30px;
+    color: white;
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 850px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .workflow {
+        flex-wrap: wrap;
+    }
+
+    .flow-card {
+        flex: 1 1 28%;
+    }
+
+    .flow-arrow {
+        display: none;
+    }
+}
+
+@media(max-width: 600px) {
+    .about-hero h1 {
+        font-size: 35px;
+    }
+
+    .about-section {
+        padding: 45px 0;
+    }
+
+    .vm-grid,
+    .category-grid,
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flow-card {
+        flex: 1 1 100%;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .impact-box {
+        padding: 30px 18px;
+    }
+
+    .about-page::before {
+        width: 300px;
+        height: 300px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="wrap topbar-inner">
+        <span>Digital Waste Collection, Recycling & EPR Network</span>
+        <div>
+            <a href="../index.html">Home</a>
+            <select aria-label="Select language">
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Marathi</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="wrap brand-row">
+        <div class="government-logos">
+            <img src="../images/cpcb-logo.jpg" alt="CPCB Logo" class="cpcb-logo">
+            <img src="../images/cpcb-name.jpg" alt="CPCB" class="cpcb-name">
+            <img src="../images/india-emblem.jpg" alt="Government of India Emblem" class="india-emblem">
+        </div>
+
+        <a class="brand-center" href="../index.html">
+            <div class="wastesetu-brand">
+                <img src="your-logo.png" alt="Waste Setu Logo" class="wastesetu-logo">
+                <div class="brand-text">
+                    <b>WASTE SETU</b>
+                    <span>Connect • Collect • Recycle</span>
+                </div>
+            </div>
+            <strong>Integrated Waste Management Platform</strong>
+            <small>Connecting households, collectors and waste managers</small>
+        </a>
+
+        <div class="header-actions">
+            <a class="button outline" href="login.html">Stakeholder Login</a>
+            <a class="button" href="registration.html">Register</a>
+        </div>
+    </div>
+
+    <nav>
+        <div class="wrap nav-row">
+            <button id="menuToggle" aria-expanded="false">☰ Menu</button>
+            <div id="navLinks">
+                <a href="../index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="../index.html#portals">Waste Portals</a>
+                <a href="../index.html#how">How It Works</a>
+                <a href="../index.html#notices">Notices</a>
+                <a href="../index.html#resources">Resources</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <a href="login.html">Login / Dashboard →</a>
+        </div>
+    </nav>
+</header>
+
+<main class="about-page">
+
+    <!-- BRAND HERO -->
+    <section class="about-hero">
+        <div class="about-wrap">
+            <img src="your-logo.png" alt="Waste Setu Logo" class="hero-logo">
+            <h1>WASTE SETU</h1>
+            <p class="hero-tagline">Connect • Collect • Recycle</p>
+            <p class="hero-description">
+                An integrated waste management platform connecting waste generators,
+                collectors, recyclers and processing organizations to create a cleaner
+                and more sustainable environment.
+            </p>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="about-section">
+        <div class="about-wrap intro-grid">
+            <div class="intro-text">
+                <span class="section-label">Who We Are</span>
+                <h2 class="section-title">Bridging the Gap in Waste Management</h2>
+                <p>
+                    Waste Setu is designed to create a structured digital connection
+                    between households, businesses, waste collectors, recyclers,
+                    manufacturers and waste processing organizations.
+                </p>
+                <p>
+                    The word <b>Setu</b> means bridge. Waste Setu acts as a digital
+                    bridge between people who generate waste and organizations
+                    that can collect, segregate, recycle, reuse or process it.
+                </p>
+                <p>
+                    Our goal is to make waste management more organized, accessible,
+                    transparent and efficient through dedicated waste portals and
+                    stakeholder connectivity.
+                </p>
+            </div>
+
+            <div class="intro-card">
+                <h3>One Platform. Multiple Connections.</h3>
+                <p>
+                    Waste Setu brings different participants of the waste
+                    management ecosystem together through a common digital platform.
+                </p>
+                <div class="intro-stat">
+                    <div class="stat-box">
+                        <b>Households & Businesses</b>
+                        <span>Waste generators and collection requests</span>
+                    </div>
+                    <div class="stat-box">
+                        <b>Waste Collectors</b>
+                        <span>Pickup, segregation and coordination</span>
+                    </div>
+                    <div class="stat-box">
+                        <b>Recyclers & Processors</b>
+                        <span>Recycling and resource recovery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION AND MISSION -->
+    <section class="about-section" style="background:#f7faf8;">
+        <div class="about-wrap">
+            <span class="section-label">Our Purpose</span>
+            <h2 class="section-title">Vision & Mission</h2>
+
+            <div class="vm-grid">
+                <article class="vm-card">
+                    <div class="vm-icon">◎</div>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To build a cleaner, greener and more sustainable future
+                        by connecting every participant in the waste management
+                        ecosystem through a unified digital platform.
+                    </p>
+                </article>
+
+                <article class="vm-card">
+                    <div class="vm-icon">↗</div>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To simplify waste collection, encourage segregation,
+                        improve stakeholder coordination and promote recycling,
+                        reuse and responsible disposal of waste.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="about-section workflow-section">
+        <div class="about-wrap">
+            <span class="section-label">Our Process</span>
+            <h2 class="section-title">How Waste Setu Works</h2>
+            <p class="section-desc">
+                A structured workflow connects waste generators with collectors
+                and recyclers, helping materials move towards appropriate
+                recovery and processing channels.
+            </p>
+
+            <div class="workflow">
+                <article class="flow-card">
+                    <div class="flow-number">01</div>
+                    <h3>Waste Generation</h3>
+                    <p>Households, businesses and industries generate waste.</p>
+                </article>
+                <span class="flow-arrow">→</span>
+
+                <article class="flow-card">
+                    <div class="flow-number">02</div>
+                    <h3>Request</h3>
+                    <p>User selects a waste category and requests collection.</p>
+                </article>
+                <span class="flow-arrow">→</span>
+
+                <article class="flow-card">
+                    <div class="flow-number">03</div>
+                    <h3>Collection</h3>
+                    <p>Collector coordinates and schedules the pickup.</p>
+                </article>
+                <span class="flow-arrow">→</span>
+
+                <article class="flow-card">
+                    <div class="flow-number">04</div>
+                    <h3>Segregation</h3>
+                    <p>Collected waste is sorted into suitable categories.</p>
+                </article>
+                <span class="flow-arrow">→</span>
+
+                <article class="flow-card">
+                    <div class="flow-number">05</div>
+                    <h3>Processing</h3>
+                    <p>Materials are connected with relevant recyclers.</p>
+                </article>
+            </div>
+
+            <!-- STAKEHOLDER FLOWCHART -->
+            <div class="stakeholder-flow">
+                <h3>Waste Setu Stakeholder Connection</h3>
+
+                <div class="flow-node">Households / Businesses</div>
+                <span class="flow-down">↓</span>
+
+                <div class="flow-node">Waste Collection Request</div>
+                <span class="flow-down">↓</span>
+
+                <div class="flow-node">Waste Collector</div>
+                <span class="flow-down">↓</span>
+
+                <div class="flow-node">Segregation & Categorization</div>
+                <span class="flow-down">↓</span>
+
+                <div class="flow-node">Recycler / Refurbisher / Processor</div>
+                <span class="flow-down">↓</span>
+
+                <div class="flow-node">Recycling • Reuse • Resource Recovery</div>
+
+                <p class="flow-note">
+                    Organic waste can be directed towards suitable composting,
+                    biogas and BIO-CNG processing channels.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WASTE CATEGORIES -->
+    <section class="about-section">
+        <div class="about-wrap">
+            <span class="section-label">Our Waste Portals</span>
+            <h2 class="section-title">Waste Categories We Cover</h2>
+            <p class="section-desc">
+                Dedicated portals help different stakeholders access services
+                based on their waste category and role.
+            </p>
+
+            <div class="category-grid">
+                <article class="category-card">
+                    <div class="category-icon">⌂</div>
+                    <h3>Domestic Waste</h3>
+                    <p>Household collection, mixed waste and segregated waste.</p>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-icon">▣</div>
+                    <h3>E-Waste</h3>
+                    <p>Producers, manufacturers, recyclers and refurbishers.</p>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-icon">▤</div>
+                    <h3>Battery Waste</h3>
+                    <p>Collection and recycling of used batteries.</p>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-icon">♻</div>
+                    <h3>Plastic Waste</h3>
+                    <p>PIBOs, PWPs, ULBs and SIMPs.</p>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-icon">◉</div>
+                    <h3>Rubber & Tyre Waste</h3>
+                    <p>Used tyre and rubber waste management.</p>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-icon">▦</div>
+                    <h3>Metal Waste</h3>
+                    <p>Collection and recycling of metal and non-metal materials.</p>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-icon">▧</div>
+                    <h3>Paper & Cardboard</h3>
+                    <p>Collectors, ULBs, manufacturers and recyclers.</p>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-icon">♧</div>
+                    <h3>Organic Waste</h3>
+                    <p>Waste aggregators, composting, biogas and BIO-CNG.</p>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-icon">◈</div>
+                    <h3>Oil & Chemical Waste</h3>
+                    <p>Used-oil stakeholders, collectors, producers and recyclers.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="about-section" style="background:#f7faf8;">
+        <div class="about-wrap">
+            <span class="section-label">Platform Capabilities</span>
+            <h2 class="section-title">Key Features</h2>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>01. Unified Platform</h3>
+                    <p>A common digital platform for waste management stakeholders.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3>02. Dedicated Portals</h3>
+                    <p>Separate access based on waste categories and stakeholder roles.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3>03. Collection Requests</h3>
+                    <p>Households can connect with collectors for waste pickup.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3>04. Recycler Connectivity</h3>
+                    <p>Collectors can connect with suitable recyclers and processors.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3>05. Waste Information</h3>
+                    <p>Waste details and supporting documents can be provided.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3>06. Request Management</h3>
+                    <p>Collection scheduling and request progress management.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3>07. Multilingual Access</h3>
+                    <p>Designed to support access in multiple languages.</p>
+                </article>
+
+                <article class="feature-card">
+                    <h3>08. Environmental Awareness</h3>
+                    <p>Promotes segregation, recycling and responsible disposal.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENVIRONMENTAL IMPACT -->
+    <section class="about-section">
+        <div class="about-wrap">
+            <div class="impact-box">
+                <span class="section-label" style="color:#c4e5d1;">OUR COMMITMENT</span>
+                <h2>Building a Cleaner Tomorrow</h2>
+                <p>
+                    Waste Setu aims to support a circular economy by improving
+                    connections between waste generators, collectors and recyclers.
+                    Through better coordination and responsible waste handling,
+                    we aim to help recover valuable resources and reduce improper
+                    waste disposal.
+                </p>
+
+                <div class="impact-points">
+                    <span>Responsible Disposal</span>
+                    <span>Waste Segregation</span>
+                    <span>Resource Recovery</span>
+                    <span>Recycling & Reuse</span>
+                    <span>Sustainable Practices</span>
+                </div>
+
+                <h3 style="color:white;margin-top:30px;">
+                    WASTE SETU — CONNECTING WASTE TO WORTH.
+                </h3>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="wrap footer-grid">
+        <div>
+            <h3>WASTE SETU</h3>
+            <p>Connect • Collect • Recycle</p>
+            <p>Connecting waste generators, collectors, recyclers and waste managers.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="../index.html#portals">Waste Portals</a>
+            <a href="../index.html#how">How It Works</a>
+        </div>
+
+        <div>
+            <h3>Waste Categories</h3>
+            <a href="../index.html#portals">E-Waste</a>
+            <a href="../index.html#portals">Plastic Waste</a>
+            <a href="../index.html#portals">Battery Waste</a>
+            <a href="../index.html#portals">Organic Waste</a>
+        </div>
+
+        <div>
+            <h3>Platform</h3>
+            <a href="login.html">Stakeholder Login</a>
+            <a href="registration.html">Register</a>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="wrap">
+            © 2026 Waste Setu. All rights reserved.
+            Waste Setu is an independent waste management platform and is not
+            an official CPCB or Government of India portal.
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+
+\n\n<script src="../assets/js/waste-setu-assistant.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recycler Login / Sign Up | Waste Setu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #203b2d;
+        }
+
+        /* =================================
+           1. TOP DARK GREEN INFORMATION BAR
+        ================================= */
+
+        .top-bar {
+            min-height: 48px;
+            background: #104b3b;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12%;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .top-links a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .top-links a:hover {
+            color: #b8e5c8;
+        }
+
+        .language {
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* =================================
+           2. ORIGINAL WHITE BRANDING SECTION
+        ================================= */
+
+        .branding-section {
+            min-height: 128px;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            align-items: center;
+            padding: 8px 12%;
+            gap: 20px;
+        }
+
+        /* Government logos */
+
+        .government-logos {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 18px;
+        }
+
+        .government-logos img {
+            object-fit: contain;
+        }
+
+        .cpcb-logo {
+            width: 68px;
+            height: 90px;
+        }
+
+        .india-emblem {
+            width: 48px;
+            height: 85px;
+        }
+
+        .cpcb-name {
+            width: 245px;
+            max-height: 75px;
+        }
+
+        /* Waste Setu branding */
+
+        .waste-branding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .waste-logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .waste-logo-row img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .waste-logo-row h1 {
+            color: #126044;
+            font-size: 31px;
+            letter-spacing: 1px;
+        }
+
+        .waste-tagline {
+            color: #16804d;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .platform-title {
+            font-size: 16px;
+            color: #172b22;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .platform-description {
+            font-size: 13px;
+            color: #78857d;
+            margin-top: 7px;
+        }
+
+        /* =================================
+           3. BOTTOM GREEN NAVIGATION BAR
+        ================================= */
+
+        .portal-navbar {
+            background: #145b43;
+            min-height: 43px;
+            display: flex;
+            align-items: center;
+            padding: 0 12%;
+            border-top: 1px solid #d5e7dc;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            color: #bce8ca;
+        }
+
+        .breadcrumb .separator {
+            color: #b7d4c3;
+        }
+
+        .breadcrumb .current {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* =================================
+           4. BATTERY WASTE MAIN CONTENT
+        ================================= */
+
+        /* BATTERY WASTE MAIN CONTENT */
+
+        .ewaste-main {
+            position: relative;
+            isolation: isolate;
+            max-width: 1250px;
+            margin: 55px auto;
+            padding: 0 30px;
+        }
+
+        /* CENTRE LOGO WATERMARK */
+
+        .ewaste-main::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 450px;
+            height: 450px;
+
+            background-image: url("your-logo.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heading-section {
+            margin-bottom: 35px;
+        }
+
+        .heading-tag {
+            display: block;
+            color: #198451;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            margin-bottom: 12px;
+        }
+
+        .heading-section h2 {
+            font-size: 32px;
+            color: #183c2b;
+            margin-bottom: 12px;
+        }
+
+        .heading-section p {
+            font-size: 16px;
+            color: #758078;
+            line-height: 1.6;
+        }
+
+        /* =================================
+           5. ROLE SELECTION CARDS
+        ================================= */
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .role-card {
+            position: relative;
+            width: 100%;
+            min-height: 185px;
+            padding: 25px;
+            background: #ffffff;
+            border: 1px solid #dce8df;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: .25s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+            border-color: #25965c;
+            box-shadow: 0 10px 25px rgba(20, 80, 45, .09);
+        }
+
+        .role-card.selected {
+            border: 2px solid #198451;
+            background: #f0faf3;
+        }
+
+        .role-number {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #e9f6ed;
+            color: #18804b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .role-card h3 {
+            font-size: 19px;
+            color: #203b2d;
+            margin-bottom: 9px;
+        }
+
+        .role-card p {
+            color: #758078;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .role-action {
+            display: block;
+            margin-top: 17px;
+            color: #198451;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .checkmark {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #198451;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .role-card.selected .checkmark {
+            display: flex;
+        }
+
+        /* =================================
+           6. CONTINUE BUTTON
+        ================================= */
+
+        .continue-area {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .selected-info {
+            font-size: 14px;
+            color: #748078;
+        }
+
+        .continue-btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            background: #176447;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .continue-btn:hover:not(:disabled) {
+            background: #104b36;
+        }
+
+        .continue-btn:disabled {
+            background: #aabbb0;
+            cursor: not-allowed;
+        }
+
+        /* =================================
+           7. FOOTER
+        ================================= */
+
+        .page-footer {
+            margin-top: 75px;
+            padding: 22px;
+            text-align: center;
+            border-top: 1px solid #e5ebe6;
+            color: #89948d;
+            font-size: 12px;
+        }
+
+        /* =================================
+           8. RESPONSIVE DESIGN
+        ================================= */
+
+        @media(max-width: 1100px) {
+
+            .top-bar,
+            .branding-section,
+            .portal-navbar {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .cpcb-name {
+                width: 180px;
+            }
+
+            .branding-section {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .government-logos {
+                gap: 10px;
+            }
+
+            .waste-branding {
+                grid-column: 2;
+            }
+        }
+
+        @media(max-width: 750px) {
+
+            .top-bar {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .top-links {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .branding-section {
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .government-logos {
+                justify-content: center;
+            }
+
+            .cpcb-logo {
+                width: 48px;
+                height: 60px;
+            }
+
+            .india-emblem {
+                width: 35px;
+                height: 60px;
+            }
+
+            .cpcb-name {
+                width: 155px;
+            }
+
+            .waste-branding {
+                grid-column: auto;
+            }
+
+            .role-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portal-navbar {
+                padding: 0 18px;
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            .top-bar {
+                font-size: 11px;
+            }
+
+            .top-links {
+                gap: 10px;
+            }
+
+            .waste-logo-row h1 {
+                font-size: 25px;
+            }
+
+            .platform-description {
+                text-align: center;
+            }
+
+            .ewaste-main {
+                margin: 35px auto;
+                padding: 0 17px;
+            }
+
+            .heading-section h2 {
+                font-size: 27px;
+            }
+
+            .role-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .role-card {
+                min-height: 165px;
+            }
+
+            .continue-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .continue-btn {
+                width: 100%;
+            }
+        }
+
+        /* DOMESTIC COLLECTION OPTIONS */
+        .domestic-intro {
+            background: linear-gradient(110deg, #f7fbf8, #eef6f1);
+            border: 1px solid #dce8df;
+            border-radius: 12px;
+            padding: 30px 38px 34px;
+            margin-bottom: 26px;
+        }
+
+        .domestic-intro .heading-tag {
+            margin-bottom: 14px;
+        }
+
+        .domestic-intro h2 {
+            color: #183c2b;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .domestic-intro p {
+            color: #758078;
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 950px;
+        }
+
+        .domestic-options {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .domestic-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            min-height: 205px;
+            padding: 28px 30px;
+            border: 1px solid #dce8df;
+            border-radius: 11px;
+            background: #ffffff;
+            color: inherit;
+            text-decoration: none;
+            transition: .25s ease;
+        }
+
+        .domestic-option:hover {
+            border-color: #198451;
+            box-shadow: 0 10px 25px rgba(20, 80, 45, .09);
+            transform: translateY(-3px);
+        }
+
+        .domestic-option-icon {
+            flex: 0 0 58px;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            background: #e9f4ed;
+            color: #167447;
+            font-size: 27px;
+        }
+
+        .domestic-option h3 {
+            color: #203b2d;
+            font-size: 21px;
+            margin: 7px 0 12px;
+        }
+
+        .domestic-option p {
+            color: #758078;
+            font-size: 17px;
+            line-height: 1.65;
+            margin-bottom: 22px;
+        }
+
+        .domestic-option .option-action {
+            color: #167447;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        @media(max-width: 700px) {
+            .domestic-options {
+                grid-template-columns: 1fr;
+            }
+
+            .domestic-intro {
+                padding: 24px 20px;
+            }
+
+            .domestic-intro h2 {
+                font-size: 30px;
+            }
+
+            .domestic-intro p {
+                font-size: 16px;
+            }
+
+            .domestic-option {
+                padding: 23px 20px;
+            }
+        }
+
+
+        /* HOUSEHOLD ACCOUNT FORM */
+        .account-main {
+            max-width: 1050px;
+            margin: 42px auto 60px;
+            padding: 0 30px;
+        }
+
+        .account-heading {
+            margin-bottom: 24px;
+        }
+
+        .account-heading .heading-tag {
+            display: block;
+            color: #198451;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            margin-bottom: 10px;
+        }
+
+        .account-heading h2 {
+            color: #183c2b;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .account-heading p {
+            color: #758078;
+            line-height: 1.6;
+        }
+
+        .account-panel {
+            background: #fff;
+            border: 1px solid #dce8df;
+            border-radius: 10px;
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(20, 80, 45, .05);
+        }
+
+        .account-tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid #e5ebe6;
+            margin-bottom: 24px;
+        }
+
+        .account-tabs button {
+            border: 0;
+            background: transparent;
+            padding: 12px 20px;
+            color: #64746a;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        .account-tabs button.active {
+            color: #176447;
+            border-bottom-color: #176447;
+        }
+
+        .account-form[hidden] { display: none !important; }
+
+        .account-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            color: #294637;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid #d5e1d8;
+            border-radius: 6px;
+            font: inherit;
+            color: #203b2d;
+            outline: none;
+        }
+
+        .form-field select {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid #d5e1d8;
+            border-radius: 6px;
+            font: inherit;
+            color: #203b2d;
+            background: #fff;
+        }
+
+        .form-field input:focus {
+            border-color: #198451;
+            box-shadow: 0 0 0 3px rgba(25,132,81,.10);
+        }
+
+        .account-submit {
+            grid-column: 1 / -1;
+            padding: 13px 22px;
+            border: 0;
+            border-radius: 6px;
+            background: #176447;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .account-submit:hover {
+            background: #104b36;
+        }
+
+        .form-message {
+            grid-column: 1 / -1;
+            font-size: 14px;
+            color: #176447;
+            min-height: 18px;
+        }
+
+        @media(max-width: 650px) {
+            .account-main { padding: 0 17px; margin-top: 30px; }
+            .account-panel { padding: 18px; }
+            .account-form { grid-template-columns: 1fr; }
+            .form-field.full, .account-submit, .form-message { grid-column: 1; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =================================
+         TOP INFORMATION BAR
+    ================================= -->
+
+    <div class="top-bar">
+
+        <div>
+            Digital Waste Collection, Recycling & EPR Network
+        </div>
+
+        <div class="top-links">
+
+            <a href="#">Notices</a>
+            <a href="#">Resources</a>
+            <a href="#">Contact</a>
+
+            <select class="language" aria-label="Select language">
+                <option>English</option>
+                <option>हिन्दी</option>
+                <option>मराठी</option>
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================
+         ORIGINAL BRANDING SECTION
+    ================================= -->
+
+    <header class="branding-section">
+
+        <div class="government-logos">
+
+            <img src="../images/cpcb-logo.jpg"
+                 class="cpcb-logo"
+                 alt="CPCB Logo">
+
+            <img src="../images/india-emblem.jpg"
+                 class="india-emblem"
+                 alt="India Emblem">
+
+            <img src="../images/cpcb-name.jpg"
+                 class="cpcb-name"
+                 alt="Central Pollution Control Board">
+
+        </div>
+
+
+        <div class="waste-branding">
+
+            <div class="waste-logo-row">
+
+                <img src="../images/recycle-logo.jpg"
+                     alt="Waste Setu Logo">
+
+                <div>
+                    <h1>WASTE SETU</h1>
+
+                    <p class="waste-tagline">
+                        Connect • Collect • Recycle
+                    </p>
+                </div>
+
+            </div>
+
+            <p class="platform-title">
+                Integrated Waste Management Platform
+            </p>
+
+            <p class="platform-description">
+                Connecting households, collectors and authorised waste managers
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================
+         BOTTOM GREEN MENU BAR
+    ================================= -->
+
+    <nav class="portal-navbar">
+
+        <div class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span class="separator">/</span>
+
+            <span class="current">Recycler Account</span>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =================================
+         OIL & CHEMICAL WASTE ROLE SELECTION
+    ================================= -->
+
+    <main class="account-main">
+        <section class="account-heading">
+            <span class="heading-tag">RUBBER TYRE MANAGEMENT SERVICES</span>
+            <h2>Recycler Account</h2>
+            <p>Register your organisation or sign in to access the Rubber Tyre Waste Setu portal.</p>
+        </section>
+
+        <section class="account-panel">
+            <div class="account-tabs">
+                <button type="button" id="signupTab" class="active">Sign Up</button>
+                <button type="button" id="loginTab">Login</button>
+            </div>
+
+            <form id="signupForm" class="account-form">
+                <div class="form-field">
+                    <label for="organisationType">Organisation type *</label>
+                    <input id="organisationType" name="organisationType" type="text" required value="Recycler" readonly>
+                </div>
+                <div class="form-field">
+                    <label for="organisationName">Organisation name *</label>
+                    <input id="organisationName" name="organisationName" type="text" required >
+                </div>
+                <div class="form-field">
+                    <label for="contactPerson">Authorised contact person *</label>
+                    <input id="contactPerson" name="contactPerson" type="text" required >
+                </div>
+                <div class="form-field">
+                    <label for="email">Email address *</label>
+                    <input id="email" name="email" type="email" required >
+                </div>
+                <div class="form-field">
+                    <label for="phone">Mobile number (10 digits) *</label>
+                    <input id="phone" name="phone" type="text" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric">
+                </div>
+                <div class="form-field">
+                    <label for="password">Password (minimum 8 characters) *</label>
+                    <input id="password" name="password" type="password" required minlength="8" autocomplete="new-password">
+                </div>
+                <div class="form-field">
+                    <label for="confirmPassword">Confirm password *</label>
+                    <input id="confirmPassword" name="confirmPassword" type="password" required minlength="8" autocomplete="new-password">
+                </div>
+                <div class="form-field">
+                    <label for="registrationNumber">Registration / licence number *</label>
+                    <input id="registrationNumber" name="registrationNumber" type="text" required >
+                </div>
+                <div class="form-field">
+                    <label for="cpcbAuthorizationNumber">CPCB authorisation number (if applicable)</label>
+                    <input id="cpcbAuthorizationNumber" name="cpcbAuthorizationNumber" type="text"  >
+                </div>
+                <div class="form-field">
+                    <label for="gstNumber">GST number (optional)</label>
+                    <input id="gstNumber" name="gstNumber" type="text"  maxlength="15">
+                </div>
+                <div class="form-field full">
+                    <label for="activityDetails">Business activity / waste handled *</label>
+                    <input id="activityDetails" name="activityDetails" type="text" required >
+                </div>
+                <div class="form-field">
+                    <label for="processingCapacity">Processing / handling capacity</label>
+                    <input id="processingCapacity" name="processingCapacity" type="text"  >
+                </div>
+                <div class="form-field">
+                    <label for="serviceArea">Service area / operating region</label>
+                    <input id="serviceArea" name="serviceArea" type="text"  >
+                </div>
+                <div class="form-field">
+                    <label for="buildingName">Building / facility name</label>
+                    <input id="buildingName" name="buildingName" type="text"  >
+                </div>
+                <div class="form-field">
+                    <label for="street">Street / Area *</label>
+                    <input id="street" name="street" type="text" required >
+                </div>
+                <div class="form-field">
+                    <label for="city">City / Village *</label>
+                    <input id="city" name="city" type="text" required >
+                </div>
+                <div class="form-field">
+                    <label for="district">District *</label>
+                    <input id="district" name="district" type="text" required >
+                </div>
+                <div class="form-field">
+                    <label for="state">State *</label>
+                    <input id="state" name="state" type="text" required value="Maharashtra">
+                </div>
+                <div class="form-field">
+                    <label for="pincode">PIN code *</label>
+                    <input id="pincode" name="pincode" type="text" required pattern="[0-9]{{6}}" maxlength="6" inputmode="numeric">
+                </div>
+                <p class="form-message" id="signupMessage" aria-live="polite"></p>
+                <button class="account-submit" type="submit">Create Recycler Account</button>
+            </form>
+
+            <form id="loginForm" class="account-form" hidden>
+                <div class="form-field full">
+                    <label for="loginEmail">Email address *</label>
+                    <input id="loginEmail" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="form-field full">
+                    <label for="loginPassword">Password *</label>
+                    <input id="loginPassword" name="password" type="password" required autocomplete="current-password">
+                </div>
+                <p class="form-message" id="loginMessage" aria-live="polite"></p>
+                <button class="account-submit" type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="page-footer">
+        © 2026 Waste Setu | Connect • Collect • Recycle
+    </footer>
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================= -->
+
+    
+<script>
+(() => {
+    const API_URL = "http://127.0.0.1:8000/api/auth";
+    const PORTAL = "rubber-tyre";
+    const ROLE = "recycler";
+
+    const signupTab = document.getElementById("signupTab");
+    const loginTab = document.getElementById("loginTab");
+    const signupForm = document.getElementById("signupForm");
+    const loginForm = document.getElementById("loginForm");
+    const signupMessage = document.getElementById("signupMessage");
+    const loginMessage = document.getElementById("loginMessage");
+
+    signupTab.addEventListener("click", () => {
+        signupForm.hidden = false;
+        loginForm.hidden = true;
+        signupTab.classList.add("active");
+        loginTab.classList.remove("active");
+        signupMessage.textContent = "";
+        loginMessage.textContent = "";
+    });
+
+    loginTab.addEventListener("click", () => {
+        signupForm.hidden = true;
+        loginForm.hidden = false;
+        loginTab.classList.add("active");
+        signupTab.classList.remove("active");
+        signupMessage.textContent = "";
+        loginMessage.textContent = "";
+    });
+
+    async function readResponse(response) {
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) {
+            const detail = Array.isArray(result.detail)
+                ? result.detail.map(item => item.msg).join(", ")
+                : result.detail;
+            throw new Error(detail || "Request failed.");
+        }
+        return result;
+    }
+
+    signupForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const button = signupForm.querySelector('button[type="submit"]');
+        const data = Object.fromEntries(new FormData(signupForm).entries());
+
+        if (data.password !== data.confirmPassword) {
+            signupMessage.textContent = "Passwords do not match.";
+            return;
+        }
+        delete data.confirmPassword;
+        data.portal = PORTAL;
+        data.role = ROLE;
+
+        signupMessage.textContent = "Creating your account...";
+        button.disabled = true;
+        try {
+            const response = await fetch(`${API_URL}/register`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            const result = await readResponse(response);
+            signupForm.reset();
+            document.getElementById("loginEmail").value = data.email;
+            loginTab.click();
+            loginMessage.textContent = result.message || "Account created. Please log in.";
+        } catch (error) {
+            console.error("Registration error:", error);
+            signupMessage.textContent = error.message || "Unable to connect to the server.";
+        } finally {
+            button.disabled = false;
+        }
+    });
+
+    loginForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const button = loginForm.querySelector('button[type="submit"]');
+        const data = Object.fromEntries(new FormData(loginForm).entries());
+        data.portal = PORTAL;
+        data.role = ROLE;
+
+        loginMessage.textContent = "Logging in...";
+        button.disabled = true;
+        try {
+            const response = await fetch(`${API_URL}/login`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            const result = await readResponse(response);
+            localStorage.setItem("wasteSetuToken", result.access_token);
+            if (result.user) {
+                localStorage.setItem("wasteSetuUser", JSON.stringify(result.user));
+            }
+            loginMessage.textContent = "Login successful. Redirecting...";
+            window.location.href = "role-dashboard.html";
+        } catch (error) {
+            console.error("Login error:", error);
+            loginMessage.textContent = error.message || "Unable to connect to the server.";
+        } finally {
+            button.disabled = false;
+        }
+    });
+})();
+</script>
+
+
+
+<script src="../assets/js/waste-setu-assistant.js" defer></script>

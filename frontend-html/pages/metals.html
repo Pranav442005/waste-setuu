@@ -1,0 +1,782 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Metal Waste Portal | Waste Setu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #203b2d;
+        }
+
+        /* =================================
+           1. TOP DARK GREEN INFORMATION BAR
+        ================================= */
+
+        .top-bar {
+            min-height: 48px;
+            background: #104b3b;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12%;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .top-links a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .top-links a:hover {
+            color: #b8e5c8;
+        }
+
+        .language {
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* =================================
+           2. ORIGINAL WHITE BRANDING SECTION
+        ================================= */
+
+        .branding-section {
+            min-height: 128px;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            align-items: center;
+            padding: 8px 12%;
+            gap: 20px;
+        }
+
+        /* Government logos */
+
+        .government-logos {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 18px;
+        }
+
+        .government-logos img {
+            object-fit: contain;
+        }
+
+        .cpcb-logo {
+            width: 68px;
+            height: 90px;
+        }
+
+        .india-emblem {
+            width: 48px;
+            height: 85px;
+        }
+
+        .cpcb-name {
+            width: 245px;
+            max-height: 75px;
+        }
+
+        /* Waste Setu branding */
+
+        .waste-branding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .waste-logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .waste-logo-row img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .waste-logo-row h1 {
+            color: #126044;
+            font-size: 31px;
+            letter-spacing: 1px;
+        }
+
+        .waste-tagline {
+            color: #16804d;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .platform-title {
+            font-size: 16px;
+            color: #172b22;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .platform-description {
+            font-size: 13px;
+            color: #78857d;
+            margin-top: 7px;
+        }
+
+        /* =================================
+           3. BOTTOM GREEN NAVIGATION BAR
+        ================================= */
+
+        .portal-navbar {
+            background: #145b43;
+            min-height: 43px;
+            display: flex;
+            align-items: center;
+            padding: 0 12%;
+            border-top: 1px solid #d5e7dc;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            color: #bce8ca;
+        }
+
+        .breadcrumb .separator {
+            color: #b7d4c3;
+        }
+
+        .breadcrumb .current {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* =================================
+           4. BATTERY WASTE MAIN CONTENT
+        ================================= */
+
+        /* BATTERY WASTE MAIN CONTENT */
+
+        .ewaste-main {
+            position: relative;
+            isolation: isolate;
+            max-width: 1250px;
+            margin: 55px auto;
+            padding: 0 30px;
+        }
+
+        /* CENTRE LOGO WATERMARK */
+
+        .ewaste-main::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 450px;
+            height: 450px;
+
+            background-image: url("your-logo.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heading-section {
+            margin-bottom: 35px;
+        }
+
+        .heading-tag {
+            display: block;
+            color: #198451;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            margin-bottom: 12px;
+        }
+
+        .heading-section h2 {
+            font-size: 32px;
+            color: #183c2b;
+            margin-bottom: 12px;
+        }
+
+        .heading-section p {
+            font-size: 16px;
+            color: #758078;
+            line-height: 1.6;
+        }
+
+        /* =================================
+           5. ROLE SELECTION CARDS
+        ================================= */
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .role-card {
+            position: relative;
+            width: 100%;
+            min-height: 185px;
+            padding: 25px;
+            background: #ffffff;
+            border: 1px solid #dce8df;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: .25s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+            border-color: #25965c;
+            box-shadow: 0 10px 25px rgba(20, 80, 45, .09);
+        }
+
+        .role-card.selected {
+            border: 2px solid #198451;
+            background: #f0faf3;
+        }
+
+        .role-number {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #e9f6ed;
+            color: #18804b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .role-card h3 {
+            font-size: 19px;
+            color: #203b2d;
+            margin-bottom: 9px;
+        }
+
+        .role-card p {
+            color: #758078;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .role-action {
+            display: block;
+            margin-top: 17px;
+            color: #198451;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .checkmark {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #198451;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .role-card.selected .checkmark {
+            display: flex;
+        }
+
+        /* =================================
+           6. CONTINUE BUTTON
+        ================================= */
+
+        .continue-area {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .selected-info {
+            font-size: 14px;
+            color: #748078;
+        }
+
+        .continue-btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            background: #176447;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .continue-btn:hover:not(:disabled) {
+            background: #104b36;
+        }
+
+        .continue-btn:disabled {
+            background: #aabbb0;
+            cursor: not-allowed;
+        }
+
+        /* =================================
+           7. FOOTER
+        ================================= */
+
+        .page-footer {
+            margin-top: 75px;
+            padding: 22px;
+            text-align: center;
+            border-top: 1px solid #e5ebe6;
+            color: #89948d;
+            font-size: 12px;
+        }
+
+        /* =================================
+           8. RESPONSIVE DESIGN
+        ================================= */
+
+        @media(max-width: 1100px) {
+
+            .top-bar,
+            .branding-section,
+            .portal-navbar {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .cpcb-name {
+                width: 180px;
+            }
+
+            .branding-section {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .government-logos {
+                gap: 10px;
+            }
+
+            .waste-branding {
+                grid-column: 2;
+            }
+        }
+
+        @media(max-width: 750px) {
+
+            .top-bar {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .top-links {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .branding-section {
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .government-logos {
+                justify-content: center;
+            }
+
+            .cpcb-logo {
+                width: 48px;
+                height: 60px;
+            }
+
+            .india-emblem {
+                width: 35px;
+                height: 60px;
+            }
+
+            .cpcb-name {
+                width: 155px;
+            }
+
+            .waste-branding {
+                grid-column: auto;
+            }
+
+            .role-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portal-navbar {
+                padding: 0 18px;
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            .top-bar {
+                font-size: 11px;
+            }
+
+            .top-links {
+                gap: 10px;
+            }
+
+            .waste-logo-row h1 {
+                font-size: 25px;
+            }
+
+            .platform-description {
+                text-align: center;
+            }
+
+            .ewaste-main {
+                margin: 35px auto;
+                padding: 0 17px;
+            }
+
+            .heading-section h2 {
+                font-size: 27px;
+            }
+
+            .role-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .role-card {
+                min-height: 165px;
+            }
+
+            .continue-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .continue-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =================================
+         TOP INFORMATION BAR
+    ================================= -->
+
+    <div class="top-bar">
+
+        <div>
+            Digital Waste Collection, Recycling & EPR Network
+        </div>
+
+        <div class="top-links">
+
+            <a href="#">Notices</a>
+            <a href="#">Resources</a>
+            <a href="#">Contact</a>
+
+            <select class="language" aria-label="Select language">
+                <option>English</option>
+                <option>हिन्दी</option>
+                <option>मराठी</option>
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================
+         ORIGINAL BRANDING SECTION
+    ================================= -->
+
+    <header class="branding-section">
+
+        <div class="government-logos">
+
+            <img src="../images/cpcb-logo.jpg"
+                 class="cpcb-logo"
+                 alt="CPCB Logo">
+
+            <img src="../images/india-emblem.jpg"
+                 class="india-emblem"
+                 alt="India Emblem">
+
+            <img src="../images/cpcb-name.jpg"
+                 class="cpcb-name"
+                 alt="Central Pollution Control Board">
+
+        </div>
+
+
+        <div class="waste-branding">
+
+            <div class="waste-logo-row">
+
+                <img src="../images/recycle-logo.jpg"
+                     alt="Waste Setu Logo">
+
+                <div>
+                    <h1>WASTE SETU</h1>
+
+                    <p class="waste-tagline">
+                        Connect • Collect • Recycle
+                    </p>
+                </div>
+
+            </div>
+
+            <p class="platform-title">
+                Integrated Waste Management Platform
+            </p>
+
+            <p class="platform-description">
+                Connecting households, collectors and authorised waste managers
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================
+         BOTTOM GREEN MENU BAR
+    ================================= -->
+
+    <nav class="portal-navbar">
+
+        <div class="breadcrumb">
+
+            <a href="../index.html">Home</a>
+
+            <span class="separator">/</span>
+
+            <span class="current">Metal Waste Portal</span>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =================================
+         METAL WASTE ROLE SELECTION
+    ================================= -->
+
+    <main class="ewaste-main">
+
+        <section class="heading-section">
+
+            <span class="heading-tag">
+                METAL WASTE MANAGEMENT PORTAL
+            </span>
+
+            <h2>Select your role</h2>
+
+            <p>
+                Choose the role that matches your organisation.
+                Access the relevant services through Waste Setu.
+            </p>
+
+        </section>
+
+
+        <section class="role-grid">
+
+            <button class="role-card" data-role="Metal Collector">
+                <div class="role-number">01</div>
+                <div class="checkmark">✓</div>
+                <h3>Metal Collector</h3>
+                <p>Collects, sorts and transports metal scrap such as iron,
+                   steel, aluminium and copper to authorised recycling units.</p>
+                <span class="role-action">Select this role →</span>
+            </button>
+
+            <button class="role-card" data-role="Metal Recycler">
+                <div class="role-number">02</div>
+                <div class="checkmark">✓</div>
+                <h3>Metal Recycler</h3>
+                <p>Processes and recovers ferrous and non-ferrous metals
+                   from scrap for reuse in manufacturing.</p>
+                <span class="role-action">Select this role →</span>
+            </button>
+
+            <button class="role-card" data-role="Non-Metal Collector">
+                <div class="role-number">03</div>
+                <div class="checkmark">✓</div>
+                <h3>Non-Metal Collector</h3>
+                <p>Collects and sorts non-metallic recyclable materials
+                   and sends them to suitable processing facilities.</p>
+                <span class="role-action">Select this role →</span>
+            </button>
+
+            <button class="role-card" data-role="Non-Metal Recycler">
+                <div class="role-number">04</div>
+                <div class="checkmark">✓</div>
+                <h3>Non-Metal Recycler</h3>
+                <p>Processes and recovers non-metal materials into
+                   reusable products or secondary raw materials.</p>
+                <span class="role-action">Select this role →</span>
+            </button>
+
+        </section>
+
+
+        <!-- CONTINUE -->
+
+        <div class="continue-area">
+
+            <p class="selected-info" id="selectedInfo">
+                Please select your organisation role to continue.
+            </p>
+
+            <button class="continue-btn"
+                    id="continueBtn"
+                    disabled>
+                Continue →
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="page-footer">
+        © 2026 Waste Setu | Connect • Collect • Recycle
+    </footer>
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+        const roleCards =
+            document.querySelectorAll(".role-card");
+
+        const continueBtn =
+            document.getElementById("continueBtn");
+
+        const selectedInfo =
+            document.getElementById("selectedInfo");
+
+        let selectedRole = null;
+
+
+        // Role selection
+
+        roleCards.forEach(card => {
+
+            card.addEventListener("click", () => {
+
+                roleCards.forEach(item => {
+
+                    item.classList.remove("selected");
+
+                    item.querySelector(".role-action").textContent =
+                        "Select this role →";
+
+                });
+
+                card.classList.add("selected");
+
+                selectedRole = card.dataset.role;
+
+                card.querySelector(".role-action").textContent =
+                    "Selected ✓";
+
+                selectedInfo.textContent =
+                    "Selected role: " + selectedRole;
+
+                continueBtn.disabled = false;
+
+            });
+
+        });
+
+
+        // Continue to signup
+
+        continueBtn.addEventListener("click", () => {
+            if (!selectedRole) return;
+            const normalizedRole = selectedRole.toLowerCase().trim().replace(/\s+/g, "-");
+            const routeMap = {
+                "metal-collector": "collector-auth.html",
+                "metal recycler": "recycler-auth.html",
+                "metal-recycler": "recycler-auth.html",
+                "metal-recycler": "recycler-auth.html",
+                "non-metal-collector": "collector-auth.html",
+                "non-metal-recycler": "recycler-auth.html"
+            };
+            const target = routeMap[selectedRole.toLowerCase().trim()] || routeMap[normalizedRole];
+            if (!target) { alert("Authentication page is not configured for this role."); return; }
+            const params = new URLSearchParams({ portal: "metals", role: normalizedRole });
+            window.location.href = target + "?" + params.toString();
+        });
+
+
+    </script>
+
+\n\n<script src="../assets/js/waste-setu-assistant.js" defer></script>
+</body>
+</html>

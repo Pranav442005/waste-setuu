@@ -1,0 +1,983 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Household Dashboard | Waste Setu</title><style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #203b2d;
+        }
+
+        /* =================================
+           1. TOP DARK GREEN INFORMATION BAR
+        ================================= */
+
+        .top-bar {
+            min-height: 48px;
+            background: #104b3b;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12%;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .top-links a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .top-links a:hover {
+            color: #b8e5c8;
+        }
+
+        .language {
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* =================================
+           2. ORIGINAL WHITE BRANDING SECTION
+        ================================= */
+
+        .branding-section {
+            min-height: 128px;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            align-items: center;
+            padding: 8px 12%;
+            gap: 20px;
+        }
+
+        /* Government logos */
+
+        .government-logos {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 18px;
+        }
+
+        .government-logos img {
+            object-fit: contain;
+        }
+
+        .cpcb-logo {
+            width: 68px;
+            height: 90px;
+        }
+
+        .india-emblem {
+            width: 48px;
+            height: 85px;
+        }
+
+        .cpcb-name {
+            width: 245px;
+            max-height: 75px;
+        }
+
+        /* Waste Setu branding */
+
+        .waste-branding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .waste-logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .waste-logo-row img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .waste-logo-row h1 {
+            color: #126044;
+            font-size: 31px;
+            letter-spacing: 1px;
+        }
+
+        .waste-tagline {
+            color: #16804d;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .platform-title {
+            font-size: 16px;
+            color: #172b22;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .platform-description {
+            font-size: 13px;
+            color: #78857d;
+            margin-top: 7px;
+        }
+
+        /* =================================
+           3. BOTTOM GREEN NAVIGATION BAR
+        ================================= */
+
+        .portal-navbar {
+            background: #145b43;
+            min-height: 43px;
+            display: flex;
+            align-items: center;
+            padding: 0 12%;
+            border-top: 1px solid #d5e7dc;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            color: #bce8ca;
+        }
+
+        .breadcrumb .separator {
+            color: #b7d4c3;
+        }
+
+        .breadcrumb .current {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* =================================
+           4. BATTERY WASTE MAIN CONTENT
+        ================================= */
+
+        /* BATTERY WASTE MAIN CONTENT */
+
+        .ewaste-main {
+            position: relative;
+            isolation: isolate;
+            max-width: 1250px;
+            margin: 55px auto;
+            padding: 0 30px;
+        }
+
+        /* CENTRE LOGO WATERMARK */
+
+        .ewaste-main::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 450px;
+            height: 450px;
+
+            background-image: url("your-logo.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heading-section {
+            margin-bottom: 35px;
+        }
+
+        .heading-tag {
+            display: block;
+            color: #198451;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            margin-bottom: 12px;
+        }
+
+        .heading-section h2 {
+            font-size: 32px;
+            color: #183c2b;
+            margin-bottom: 12px;
+        }
+
+        .heading-section p {
+            font-size: 16px;
+            color: #758078;
+            line-height: 1.6;
+        }
+
+        /* =================================
+           5. ROLE SELECTION CARDS
+        ================================= */
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .role-card {
+            position: relative;
+            width: 100%;
+            min-height: 185px;
+            padding: 25px;
+            background: #ffffff;
+            border: 1px solid #dce8df;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: .25s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+            border-color: #25965c;
+            box-shadow: 0 10px 25px rgba(20, 80, 45, .09);
+        }
+
+        .role-card.selected {
+            border: 2px solid #198451;
+            background: #f0faf3;
+        }
+
+        .role-number {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #e9f6ed;
+            color: #18804b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .role-card h3 {
+            font-size: 19px;
+            color: #203b2d;
+            margin-bottom: 9px;
+        }
+
+        .role-card p {
+            color: #758078;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .role-action {
+            display: block;
+            margin-top: 17px;
+            color: #198451;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .checkmark {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #198451;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .role-card.selected .checkmark {
+            display: flex;
+        }
+
+        /* =================================
+           6. CONTINUE BUTTON
+        ================================= */
+
+        .continue-area {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .selected-info {
+            font-size: 14px;
+            color: #748078;
+        }
+
+        .continue-btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            background: #176447;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .continue-btn:hover:not(:disabled) {
+            background: #104b36;
+        }
+
+        .continue-btn:disabled {
+            background: #aabbb0;
+            cursor: not-allowed;
+        }
+
+        /* =================================
+           7. FOOTER
+        ================================= */
+
+        .page-footer {
+            margin-top: 75px;
+            padding: 22px;
+            text-align: center;
+            border-top: 1px solid #e5ebe6;
+            color: #89948d;
+            font-size: 12px;
+        }
+
+        /* =================================
+           8. RESPONSIVE DESIGN
+        ================================= */
+
+        @media(max-width: 1100px) {
+
+            .top-bar,
+            .branding-section,
+            .portal-navbar {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .cpcb-name {
+                width: 180px;
+            }
+
+            .branding-section {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .government-logos {
+                gap: 10px;
+            }
+
+            .waste-branding {
+                grid-column: 2;
+            }
+        }
+
+        @media(max-width: 750px) {
+
+            .top-bar {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .top-links {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .branding-section {
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .government-logos {
+                justify-content: center;
+            }
+
+            .cpcb-logo {
+                width: 48px;
+                height: 60px;
+            }
+
+            .india-emblem {
+                width: 35px;
+                height: 60px;
+            }
+
+            .cpcb-name {
+                width: 155px;
+            }
+
+            .waste-branding {
+                grid-column: auto;
+            }
+
+            .role-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portal-navbar {
+                padding: 0 18px;
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            .top-bar {
+                font-size: 11px;
+            }
+
+            .top-links {
+                gap: 10px;
+            }
+
+            .waste-logo-row h1 {
+                font-size: 25px;
+            }
+
+            .platform-description {
+                text-align: center;
+            }
+
+            .ewaste-main {
+                margin: 35px auto;
+                padding: 0 17px;
+            }
+
+            .heading-section h2 {
+                font-size: 27px;
+            }
+
+            .role-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .role-card {
+                min-height: 165px;
+            }
+
+            .continue-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .continue-btn {
+                width: 100%;
+            }
+        }
+
+        /* DOMESTIC COLLECTION OPTIONS */
+        .domestic-intro {
+            background: linear-gradient(110deg, #f7fbf8, #eef6f1);
+            border: 1px solid #dce8df;
+            border-radius: 12px;
+            padding: 30px 38px 34px;
+            margin-bottom: 26px;
+        }
+
+        .domestic-intro .heading-tag {
+            margin-bottom: 14px;
+        }
+
+        .domestic-intro h2 {
+            color: #183c2b;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .domestic-intro p {
+            color: #758078;
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 950px;
+        }
+
+        .domestic-options {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .domestic-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            min-height: 205px;
+            padding: 28px 30px;
+            border: 1px solid #dce8df;
+            border-radius: 11px;
+            background: #ffffff;
+            color: inherit;
+            text-decoration: none;
+            transition: .25s ease;
+        }
+
+        .domestic-option:hover {
+            border-color: #198451;
+            box-shadow: 0 10px 25px rgba(20, 80, 45, .09);
+            transform: translateY(-3px);
+        }
+
+        .domestic-option-icon {
+            flex: 0 0 58px;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            background: #e9f4ed;
+            color: #167447;
+            font-size: 27px;
+        }
+
+        .domestic-option h3 {
+            color: #203b2d;
+            font-size: 21px;
+            margin: 7px 0 12px;
+        }
+
+        .domestic-option p {
+            color: #758078;
+            font-size: 17px;
+            line-height: 1.65;
+            margin-bottom: 22px;
+        }
+
+        .domestic-option .option-action {
+            color: #167447;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        @media(max-width: 700px) {
+            .domestic-options {
+                grid-template-columns: 1fr;
+            }
+
+            .domestic-intro {
+                padding: 24px 20px;
+            }
+
+            .domestic-intro h2 {
+                font-size: 30px;
+            }
+
+            .domestic-intro p {
+                font-size: 16px;
+            }
+
+            .domestic-option {
+                padding: 23px 20px;
+            }
+        }
+
+    
+.dashboard-nav{background:#176b4b;display:flex;gap:8px;flex-wrap:wrap;padding:12px 8%}.dashboard-nav button{border:0;background:transparent;color:white;padding:12px 16px;border-radius:8px;cursor:pointer;font-weight:600}.dashboard-nav button.active,.dashboard-nav button:hover{background:#fff;color:#176b4b}.dashboard-wrap{max-width:1180px;margin:30px auto;padding:0 20px 45px}.welcome{background:linear-gradient(120deg,#104b3b,#21845c);color:#fff;border-radius:18px;padding:28px;margin-bottom:24px}.welcome h2{font-size:27px;margin-bottom:8px}.welcome p{opacity:.92;line-height:1.6}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0 26px}.stat,.panel{background:#fff;border:1px solid #e1ebe4;border-radius:14px;padding:20px;box-shadow:0 5px 18px rgba(16,75,59,.06)}.stat small{color:#668072;display:block;margin-bottom:8px}.stat strong{color:#176b4b;font-size:27px}.panel h3{color:#174d39;margin-bottom:16px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-weight:600;font-size:14px;color:#345b48}.field input,.field select,.field textarea{width:100%;border:1px solid #cbdacf;border-radius:8px;padding:12px;font:inherit;background:#fff}.field textarea{min-height:90px;resize:vertical}.primary-btn{background:#176b4b;color:#fff;border:0;padding:13px 22px;border-radius:9px;cursor:pointer;font-weight:700;margin-top:17px}.muted{color:#6d8175;font-size:13px;margin-top:7px}.tab-panel{display:none}.tab-panel.active{display:block}.empty-state{border:1px dashed #b8cbbd;padding:25px;border-radius:12px;text-align:center;color:#6d8175}@media(max-width:700px){.stats,.form-grid{grid-template-columns:1fr}.dashboard-nav{padding:10px 12px}.dashboard-nav button{flex:1 1 42%}.welcome h2{font-size:22px}}
+
+/* TOP INFORMATION BAR - retained above original branding */
+.top-bar{min-height:46px;background:#104b3b;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 11.5%;gap:20px;font-size:13px}
+.top-links{display:flex;align-items:center;gap:24px}
+.top-links a{color:#fff;text-decoration:none}
+.top-links a:hover{color:#b8e5c8}
+.language{border:0;background:transparent;color:#fff;font-size:14px;cursor:pointer}
+/* Dashboard navigation */
+.dashboard-nav{background:#176b4b;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px max(5%,calc((100% - 1180px)/2))}
+.dashboard-nav button{border:0;background:transparent;color:#fff;padding:14px 20px;border-radius:10px;cursor:pointer;font-weight:600;font-size:15px}
+.dashboard-nav button.active,.dashboard-nav button:hover{background:#fff;color:#176b4b}
+.dashboard-wrap{max-width:1180px;margin:30px auto;padding:0 20px 45px}
+.welcome{background:linear-gradient(120deg,#104b3b,#21845c);color:#fff;border-radius:18px;padding:28px;margin-bottom:24px}
+.welcome h2{font-size:27px;margin-bottom:8px}.welcome p{opacity:.92;line-height:1.6}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:20px 0 26px}
+.stat{min-height:120px;background:#fff;border:1px solid #dce9df;border-radius:17px;padding:24px;box-shadow:0 5px 18px rgba(16,75,59,.06)}
+.stat small{color:#526c5c;display:block;margin-bottom:13px;font-size:15px}
+.stat strong{display:block;color:#176b4b;font-size:30px;font-weight:700}
+.panel{background:#fff;border:1px solid #e1ebe4;border-radius:15px;padding:24px;box-shadow:0 5px 18px rgba(16,75,59,.06)}
+.panel h3{color:#174d39;margin-bottom:16px;font-size:22px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
+.field label{font-weight:600;font-size:14px;color:#345b48}
+.field input,.field select,.field textarea{width:100%;border:1px solid #cbdacf;border-radius:8px;padding:12px;font:inherit;background:#fff}
+.field textarea{min-height:90px;resize:vertical}
+.primary-btn{background:#176b4b;color:#fff;border:0;padding:13px 22px;border-radius:9px;cursor:pointer;font-weight:700;margin-top:17px}
+.primary-btn:hover{background:#104b3b}.muted{color:#6d8175;font-size:13px;margin-top:7px}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.table-wrap{width:100%;overflow-x:auto;margin-top:18px}
+#lots table{width:100%;min-width:700px;border-collapse:separate;border-spacing:0;background:#fff}
+#lots th{background:#edf5ef;color:#174d39;font-weight:700;padding:16px 18px;text-align:left;white-space:nowrap}
+#lots td{padding:16px 18px;border-bottom:1px solid #e6eee8;color:#344b3d;text-align:left;white-space:nowrap}
+#lots tbody tr:hover{background:#f6faf7}
+.lot-status{display:inline-block;padding:6px 12px;border-radius:20px;background:#e5f4e9;color:#176b4b;font-size:13px;font-weight:600}
+.empty-state{border:1px dashed #b8cbbd;padding:25px;border-radius:12px;text-align:center;color:#6d8175}
+@media(max-width:760px){.top-bar{padding:10px 4%;flex-wrap:wrap;justify-content:center;text-align:center}.top-links{gap:14px;flex-wrap:wrap;justify-content:center}.stats,.form-grid{grid-template-columns:1fr}.dashboard-nav{padding:10px 12px}.dashboard-nav button{flex:1 1 42%}.welcome h2{font-size:22px}}
+
+
+/* Attractive profile and account history */
+.profile-layout { display:grid; grid-template-columns: minmax(250px, .85fr) 1.7fr; gap:22px; margin-top:18px; }
+.profile-identity { background:linear-gradient(145deg,#104b3b,#21845c); color:#fff; border-radius:16px; padding:26px; min-height:260px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.profile-avatar { width:82px; height:82px; border-radius:50%; display:grid; place-items:center; background:#fff; color:#176b4b; font-size:30px; font-weight:800; margin-bottom:15px; border:4px solid rgba(255,255,255,.35); }
+.profile-identity h4 { font-size:20px; margin:0 0 7px; overflow-wrap:anywhere; }
+.profile-identity p { color:#e1f3e8; font-size:14px; overflow-wrap:anywhere; }
+.profile-role { display:inline-block; margin-top:15px; padding:7px 13px; border:1px solid rgba(255,255,255,.45); border-radius:30px; font-size:12px; font-weight:700; }
+.profile-info-card,.history-card { background:#fff; border:1px solid #e1ebe4; border-radius:16px; padding:22px; box-shadow:0 5px 18px rgba(16,75,59,.05); }
+.profile-info-card h4,.history-card h4 { color:#174d39; margin:0 0 17px; font-size:17px; }
+.profile-info-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.profile-info-item { background:#f6faf7; border:1px solid #e7efe9; border-radius:10px; padding:13px 15px; min-width:0; }
+.profile-info-item small { display:block; color:#718477; font-size:12px; margin-bottom:6px; }
+.profile-info-item strong { display:block; color:#294b37; font-size:14px; overflow-wrap:anywhere; font-weight:600; }
+.profile-lower { margin-top:22px; }
+.history-entry { display:flex; gap:13px; align-items:flex-start; padding:12px 0; border-bottom:1px solid #edf2ee; }
+.history-entry:last-child { border-bottom:0; }
+.history-dot { width:11px; height:11px; margin-top:5px; border-radius:50%; background:#21845c; flex:0 0 11px; box-shadow:0 0 0 4px #e7f4eb; }
+.history-entry strong { color:#294b37; font-size:14px; display:block; }
+.history-entry small { color:#7b8d80; display:block; margin-top:4px; }
+@media(max-width:760px){ .profile-layout{grid-template-columns:1fr;} .profile-info-grid{grid-template-columns:1fr;} }
+
+
+
+/* ===== HOME PAGE HEADER DIMENSIONS: dashboard match ===== */
+.top-bar {
+    width: 100%;
+    min-height: 43px;
+    height: 43px;
+    padding: 0 max(20px, calc((100% - 1455px) / 2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #103e30;
+    color: #eaf3ed;
+    font-size: 13px;
+}
+.top-message { white-space: nowrap; }
+.top-links { display: flex; align-items: center; gap: 24px; }
+.top-links a { color: #fff; text-decoration: none; }
+.language { border: 0; background: transparent; color: #fff; font-size: 14px; cursor: pointer; }
+.branding-section {
+    width: 100%;
+    min-height: 131px;
+    height: 131px;
+    padding: 8px max(20px, calc((100% - 1455px) / 2));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+}
+.government-logos { display: flex; align-items: center; justify-content: flex-start; gap: 10px; min-width: 0; }
+.cpcb-logo { width: 60px; height: 68px; object-fit: contain; }
+.india-emblem { width: 38px; height: 58px; object-fit: contain; }
+.cpcb-name { width: 245px; max-width: 100%; max-height: 65px; object-fit: contain; }
+.waste-branding { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; white-space: nowrap; }
+.waste-logo-row { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.waste-logo-row img { width: 48px; height: 48px; object-fit: contain; }
+.waste-logo-row h1 { color: #155e45; font-size: 31px; letter-spacing: 1px; }
+.waste-tagline { color: #237b55; font-size: 14px; margin-top: 3px; }
+.platform-title { color: #203128; font-size: 16px; font-weight: 600; margin-top: 3px; }
+.platform-description { color: #69776f; font-size: 13px; margin-top: 3px; }
+.dashboard-nav {
+    width: 100%;
+    min-height: 60px;
+    padding: 0 max(20px, calc((100% - 1455px) / 2));
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #155e45;
+}
+.dashboard-nav button { min-height: 48px; padding: 12px 20px; border-radius: 8px; font-size: 15px; }
+@media (max-width: 1000px) {
+    .branding-section { height: auto; min-height: 131px; grid-template-columns: 1fr; justify-items: center; padding: 14px 20px; gap: 12px; }
+    .government-logos { justify-content: center; }
+    .waste-branding { white-space: normal; }
+}
+@media (max-width: 600px) {
+    .top-bar { height: auto; min-height: 43px; padding: 8px 16px; flex-wrap: wrap; justify-content: center; }
+    .top-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .top-message { text-align: center; white-space: normal; }
+    .dashboard-nav { padding: 8px 12px; }
+    .dashboard-nav button { flex: 1 1 42%; }
+}
+
+
+/* Logout action */
+.dashboard-nav .logout-button {
+    margin-left: auto;
+    background: #ffffff;
+    color: #145b43;
+    border: 1px solid #ffffff;
+    font-weight: 700;
+}
+.dashboard-nav .logout-button:hover {
+    background: #eaf4ee;
+    color: #104b3b;
+}
+@media (max-width: 700px) {
+    .dashboard-nav .logout-button { margin-left: 0; }
+}
+
+</style></head><body>
+<div class="top-bar">
+    <div class="top-message">Digital Waste Collection, Recycling &amp; EPR Network</div>
+    <div class="top-links">
+        <a href="#" onclick="return false;">Notices</a>
+        <a href="#" onclick="return false;">Resources</a>
+        <a href="#" onclick="return false;">Contact</a>
+        <select class="language" aria-label="Select language" data-language-selector><option value="en">English</option><option value="hi">हिन्दी</option><option value="mr">मराठी</option><option value="gu">ગુજરાતી</option><option value="bn">বাংলা</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option><option value="kn">ಕನ್ನಡ</option></select>
+    </div>
+</div>
+<header class="branding-section">
+
+        <div class="government-logos">
+
+            <img src="../images/cpcb-logo.jpg"
+                 class="cpcb-logo"
+                 alt="CPCB Logo">
+
+            <img src="../images/india-emblem.jpg"
+                 class="india-emblem"
+                 alt="India Emblem">
+
+            <img src="../images/cpcb-name.jpg"
+                 class="cpcb-name"
+                 alt="Central Pollution Control Board">
+
+        </div>
+
+
+        <div class="waste-branding">
+
+            <div class="waste-logo-row">
+
+                <img src="../images/recycle-logo.jpg"
+                     alt="Waste Setu Logo">
+
+                <div>
+                    <h1>WASTE SETU</h1>
+
+                    <p class="waste-tagline">
+                        Connect • Collect • Recycle
+                    </p>
+                </div>
+
+            </div>
+
+            <p class="platform-title">
+                Integrated Waste Management Platform
+            </p>
+
+            <p class="platform-description">
+                Connecting households, collectors and authorised waste managers
+            </p>
+
+        </div>
+
+    </header>
+<nav class="dashboard-nav"><button class="active" data-tab="home">Home</button><button data-tab="lots">My Lots</button><button data-tab="collectors">Nearby Collector</button><button data-tab="transactions">Transaction</button><button data-tab="profile">Profile / History</button><button type="button" id="logoutButton" class="logout-button">Logout</button></nav>
+<main class="dashboard-wrap">
+<section id="home" class="tab-panel active"><div class="welcome"><h2>Domestic Waste Dashboard</h2><p>Create waste lots, receive collector requests, schedule pickups and track transactions through Lot Passports.</p></div>
+<div class="stats"><div class="stat"><small>Total Lots Created</small><strong id="totalLots">0</strong></div><div class="stat"><small>Pickup Requests</small><strong>0</strong></div><div class="stat"><small>Completed Transactions</small><strong>0</strong></div></div>
+<section class="panel"><h3>Create a New Waste Lot</h3><form id="lotForm"><div class="form-grid">
+<div class="field"><label>Lot title *</label><input name="lotTitle" required placeholder="e.g. Household recyclable waste"></div>
+<div class="field"><label>Waste category *</label><select name="wasteCategory" required><option value="">Select category</option><option>Plastic</option><option>Paper</option><option>Metal</option><option>E-waste</option><option>Battery</option><option>Rubber & Tyre</option><option>Organic</option><option>Oil & Chemical</option><option>Mixed</option></select></div>
+<div class="field"><label>Material / item names *</label><input name="material" required placeholder="PET bottles, cardboard, cans..."></div>
+<div class="field"><label>Estimated weight (kg) *</label><input name="estimatedWeight" type="number" min="0.1" step="0.1" required></div>
+<div class="field"><label>Approx. number of items</label><input name="itemCount" type="number" min="1"></div>
+<div class="field"><label>Waste condition</label><select name="wasteCondition"><option value="">Select condition</option><option>Clean / Segregated</option><option>Mixed</option><option>Damaged</option><option>Other</option></select></div>
+<div class="field full"><label>Description</label><textarea name="description" placeholder="Describe the waste lot..."></textarea></div>
+<div class="field"><label>Pickup address *</label><input name="pickupAddress" required></div><div class="field"><label>City *</label><input name="city" required></div>
+<div class="field"><label>Preferred pickup date</label><input name="preferredDate" type="date"></div><div class="field"><label>Preferred pickup time</label><input name="preferredTime" type="time"></div>
+<div class="field full"><label>Waste photographs (optional)</label><input name="lotPhotos" type="file" accept="image/*" multiple><p class="muted">Photos are optional. You can create a lot without uploading images.</p></div></div><button class="primary-btn" type="submit">Create Lot Passport</button><p class="muted" id="lotMessage">Your lot will receive a unique Lot ID after saving.</p></form></section></section>
+<section id="lots" class="tab-panel">
+<section class="panel">
+<h3>My Lots</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Lot ID</th><th>Title</th><th>Category</th><th>Weight (kg)</th><th>Status</th></tr></thead>
+<tbody id="lotsTableBody"><tr><td colspan="5">Loading your lots...</td></tr></tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="collectors" class="tab-panel"><section class="panel"><h3>Nearby Collectors</h3><p class="muted">You can request any available collector. You are not restricted to a particular waste-category collector.</p><div class="empty-state">Nearby collectors will appear here.</div></section></section>
+<section id="transactions" class="tab-panel"><section class="panel"><h3>Transactions</h3><div class="empty-state">Payments and printable invoices will appear here.</div></section></section>
+<section id="profile" class="tab-panel">
+  <section class="panel">
+    <h3>My Profile</h3>
+    <p class="muted">Manage and review your Waste Setu account information and activity.</p>
+    <div class="profile-layout">
+      <div class="profile-identity">
+        <div class="profile-avatar" id="profileAvatar">A</div>
+        <h4 id="profileName">Household User</h4>
+        <p id="profileEmail">Email address</p>
+        <span class="profile-role">HOUSEHOLD</span>
+      </div>
+      <div class="profile-info-card">
+        <h4>Account Information</h4>
+        <div class="profile-info-grid">
+          <div class="profile-info-item"><small>Full name / Organisation</small><strong id="profileInfoName">—</strong></div>
+          <div class="profile-info-item"><small>Email address</small><strong id="profileInfoEmail">—</strong></div>
+          <div class="profile-info-item"><small>Account type</small><strong>Household</strong></div>
+          <div class="profile-info-item"><small>Portal</small><strong>Domestic Waste</strong></div>
+          <div class="profile-info-item"><small>Mobile number</small><strong id="profilePhone">Not provided</strong></div>
+          <div class="profile-info-item"><small>Account status</small><strong><span class="lot-status">Active</span></strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-lower history-card">
+      <h4>Recent Account Activity</h4>
+      <div class="history-entry">
+        <span class="history-dot"></span>
+        <div><strong>Signed in to Waste Setu</strong><small id="profileLoginTime">Current session</small></div>
+      </div>
+      <div class="history-entry">
+        <span class="history-dot"></span>
+        <div><strong>Domestic household account</strong><small>Your household lots are saved to your account and appear in My Lots.</small></div>
+      </div>
+    </div>
+  </section>
+</section></main><footer class="page-footer">
+        © 2026 Waste Setu | Connect • Collect • Recycle
+    </footer>
+<script>
+const token=localStorage.getItem('wasteSetuToken');let user=null;try{user=JSON.parse(localStorage.getItem('wasteSetuUser')||'null')}catch(e){}
+if(!token||!user||user.portal!=='domestic'||user.role!=='household'){window.location.replace('signup.html?portal=domestic&role=household')}else{
+  const n=user.name||user.organisationName||user.contactPerson||'Household User';
+  const email=user.email||'Email not available';
+  document.querySelector('.welcome h2').textContent='Welcome, '+n;
+  document.getElementById('profileName').textContent=n;
+  document.getElementById('profileEmail').textContent=email;
+  document.getElementById('profileAvatar').textContent=(n.trim().charAt(0)||'A').toUpperCase();
+  document.getElementById('profileInfoName').textContent=n;
+  document.getElementById('profileInfoEmail').textContent=email;
+  document.getElementById('profilePhone').textContent=user.phone||'Not provided';
+  document.getElementById('profileLoginTime').textContent='Current session • '+new Date().toLocaleString();
+}
+document.querySelectorAll('.dashboard-nav button[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.dashboard-nav button[data-tab]').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active')}));
+
+document.getElementById('logoutButton').addEventListener('click',()=>{
+  localStorage.removeItem('wasteSetuToken');
+  localStorage.removeItem('wasteSetuUser');
+  window.location.replace('signup.html?portal=domestic&role=household');
+});
+
+const API_BASE = "http://127.0.0.1:8000/api/domestic";
+const lotMessage = document.getElementById("lotMessage");
+const lotsTableBody = document.getElementById("lotsTableBody");
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[ch]));
+}
+
+async function loadLots() {
+  try {
+    const response = await fetch(`${API_BASE}/lots`, {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({}));
+      throw new Error(error.detail || `Could not load lots (${response.status})`);
+    }
+    const data = await response.json();
+    const lots = data.lots || [];
+    document.getElementById("totalLots").textContent = data.total ?? lots.length;
+    if (!lots.length) {
+      lotsTableBody.innerHTML = '<tr><td colspan="5">No lots created yet.</td></tr>';
+      return;
+    }
+    lotsTableBody.innerHTML = lots.map(lot => `
+      <tr>
+        <td>${escapeHtml(lot.lot_id)}</td>
+        <td>${escapeHtml(lot.lotTitle)}</td>
+        <td>${escapeHtml(lot.wasteCategory)}</td>
+        <td>${escapeHtml(lot.estimatedWeight)}</td>
+        <td><span class="lot-status">${escapeHtml(lot.status)}</span></td>
+      </tr>`).join("");
+  } catch (error) {
+    lotsTableBody.innerHTML = `<tr><td colspan="5">${escapeHtml(error.message)}</td></tr>`;
+    console.error("Load lots error:", error);
+  }
+}
+
+document.getElementById("lotForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const formData = new FormData(form);
+  const payload = Object.fromEntries(formData.entries());
+  delete payload.lotPhotos; // Photo upload is optional and will be connected separately.
+  payload.estimatedWeight = Number(payload.estimatedWeight);
+  payload.itemCount = payload.itemCount ? Number(payload.itemCount) : null;
+  Object.keys(payload).forEach(key => {
+    if (payload[key] === "") payload[key] = null;
+  });
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.textContent = "Creating lot...";
+  lotMessage.textContent = "Saving your lot to Waste Setu...";
+  try {
+    const response = await fetch(`${API_BASE}/lots`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.detail || `Lot creation failed (${response.status})`);
+    lotMessage.textContent = `Lot created successfully. Lot ID: ${result.lot?.lot_id || "Created"}`;
+    form.reset();
+    await loadLots();
+  } catch (error) {
+    lotMessage.textContent = error.message;
+    console.error("Create lot error:", error);
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Create Lot Passport";
+  }
+});
+
+loadLots();
+
+</script><script src="../assets/js/i18n.js"></script>
+\n\n<script src="../assets/js/waste-setu-assistant.js" defer></script>
+</body></html>

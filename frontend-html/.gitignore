@@ -1,0 +1,17 @@
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Deployment
+.vercel/
