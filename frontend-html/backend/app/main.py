@@ -27,14 +27,19 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[],
-    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
+    allow_origins=[
+        "https://waste-setuu-1.onrender.com",
+    ],
+    allow_origin_regex=r"^https?://(localhost|127\.0.0.1)(:\d+)?$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 app.include_router(auth_router)
 app.include_router(domestic_router)
